@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>{% block title %}{% endblock title %}</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body  style="background-image: url('static/images/07.jpg')">
+	<header class="intro-header">
+	<div class="container">
+		
+		{% include 'includes/_navbar.html'%}
+		<div class = "heading">
+			<center>
+				<h1 style="color: #fff;padding-top: 20px;">Phishing Website Detection Tool</h1>
+				
+			</center>
+		</div>
+		{% block body %}{% endblock body%}
+		
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+	</div>
+</header>
+</body>
+</html>

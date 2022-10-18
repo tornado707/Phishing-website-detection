@@ -1,0 +1,31 @@
+{% extends 'layout.html'%} {% block title %} Phishing Website Detection
+{% endblock title %} {% block body %}
+<div style="padding-top:60px;">
+<div class="jumbotron" >
+	
+		<h3 >Free scanner to detect phishing & fraudulent sites in real-time using Machine Learning.</h3>
+		
+
+		<form method="POST" action="{{url_for('getURL')}}" style = "margin-top: 20px;">
+			<div class=form-group>
+				Enter URL in the form "https://www.example.com"
+				<input class="form-control" type=text name="url" placeholder="Enter a url"
+							value="{{request.form.url}}" required size=90 style="margin-bottom: 5px;" />
+					<div style="padding-top: 5px;"><input  class="btn btn-primary" type=submit
+							value="CheckURL" /></div>
+
+					{% if error %} {% if error == 'This URL is Legitimate'
+							%}
+							<p style="color: green; padding-top: 20px;font-size: 20px;">
+								<strong>{{error}}</strong>
+							</p> {% else %}
+							<p style="color: red; padding-top: 20px;font-size: 20px;">
+								<strong>{{error}}</strong>
+							</p> {% endif %} {% endif %}
+							
+			</div>
+		</form>
+	
+</div>
+</div>
+{% endblock body %}
